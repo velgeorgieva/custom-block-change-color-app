@@ -1,22 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
 
+function toggleTheme() {
+  const body = document.querySelector('.App-header');
+  body.classList.toggle('dark');  // toggle dark class
+  window.parent.postMessage('Color changed!', '*')
+}
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Server-side.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button
+            onClick={toggleTheme}
+            style={{backgroundColor: "#dc6922", border: "none", padding: "10px", cursor: "pointer", textTransform: "uppercase"}}>
+          Toggle Theme
+        </button>
       </header>
     </div>
   );
