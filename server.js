@@ -26,6 +26,7 @@ app.get('/*', function (req, res) {
 app.post("/", (req, res) => {
     // perform operation and return response.
     res.status(200).json({ message: "It worked!" });
+    console.log(res);
 });
 
 app.listen(port);
