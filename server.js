@@ -25,7 +25,7 @@ app.get('/*', function (req, res) {
 
 app.post("/", (req, res) => {
     // perform operation and return response.
-    res.status(200).json({ message: req.body.name });
+    res.status(200).json({ message: req.name });
     console.log('Response: ' + res);
     console.log('Request: ' + req);
     alert(req.body);
