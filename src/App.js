@@ -4,7 +4,7 @@ import './App.css';
 function toggleTheme() {
   const body = document.querySelector('.App-header');
   body.classList.toggle('dark');  // toggle dark class
-  window.parent.postMessage('Color changed!', '*')
+  window.parent.postMessage(JSON.stringify({ 'data': 'Color changed!', 'body': body}), '*')
 }
 
 function App() {
