@@ -6,6 +6,13 @@ function toggleTheme() {
   body.classList.toggle('dark');  // toggle dark class
   window.parent.postMessage({ "data": {"msg": "sportal365_custom_event", "body": ''}}, '*')
 }
+//Callback function
+function receiveMessageFromIframePage (event) {
+  console.log('receiveMessageFromIframePage', event)
+}
+
+//Listen for message events
+window.addEventListener("message", receiveMessageFromIframePage, false);
 
 function App() {
   return (
