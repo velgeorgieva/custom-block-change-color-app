@@ -4,7 +4,7 @@ import './App.css';
 function toggleTheme() {
   const body = document.querySelector('.App-header');
   body.classList.toggle('dark');  // toggle dark class
-  window.parent.postMessage({ "data": {"msg": "sportal365_message", "body": ''}}, '*')
+  window.parent.postMessage({ "data": {"msg": "sportal365_custom_event", "body": '<h1>Succeeded!</h1>'}}, '*')
 }
 
 function App() {
