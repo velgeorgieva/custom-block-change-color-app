@@ -4,11 +4,13 @@ import './App.css';
 function toggleTheme() {
   const body = document.querySelector('.App-header');
   body.classList.toggle('dark');  // toggle dark class
-  window.parent.postMessage({ "data": {"msg": "sportal365_custom_event", "body": ''}}, '*')
+  window.parent.postMessage({ "data": {"msg": "sportal365_custom_event", "payload": ''}}, '*')
 }
 //Callback function
 function receiveMessageFromIframePage (event) {
-  console.log('receiveMessageFromIframePage', event)
+  console.log('receiveMessageFromIframePage', event);
+  const body = document.querySelector('.App-header');
+  body.append(event.data);
 }
 
 //Listen for message events
