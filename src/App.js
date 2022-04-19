@@ -5,6 +5,7 @@ function toggleTheme() {
   const body = document.querySelector('.App-header');
   body.classList.toggle('dark');  // toggle dark class
   const jsonResponse = {"name":"John", "age":30, "car":null};
+  console.log(JSON.stringify(jsonResponse));
   window.parent.postMessage({ "data": {"msg": "sportal365_custom_event", "payload": JSON.stringify(jsonResponse)}, '*')
 }
 //Callback function
