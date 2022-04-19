@@ -11,6 +11,7 @@ function receiveMessageFromIframePage (event) {
   console.log('receiveMessageFromIframePage', event);
   const body = document.querySelector('.cms-response');
   body.appendChild(document.createTextNode(event.data));
+}
 
 //Listen for message events
 window.addEventListener("message", receiveMessageFromIframePage, false);
