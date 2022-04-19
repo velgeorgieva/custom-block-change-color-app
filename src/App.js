@@ -10,7 +10,7 @@ function toggleTheme() {
 function receiveMessageFromIframePage (event) {
   console.log('receiveMessageFromIframePage', event);
   const body = document.querySelector('.cms-response');
-  body.value = event.data;
+  body.insertAdjacentText('beforeend', event.data);
 }
 
 //Listen for message events
