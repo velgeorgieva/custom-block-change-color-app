@@ -10,7 +10,8 @@ function toggleTheme() {
 function receiveMessageFromIframePage (event) {
   console.log('receiveMessageFromIframePage', event);
   const body = document.querySelector('.cms-response');
-  body.removeAttributeNode(body.getAttributeNode('cms-response-text'));
+  const element = document.querySelector('.cms-response-text');
+  element.remove();
   body.createElement('div', {class: 'cms-response-text'}).insertAdjacentText('beforeend', event.data);
 }
 
