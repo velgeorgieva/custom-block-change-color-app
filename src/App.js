@@ -9,8 +9,8 @@ function toggleTheme() {
 //Callback function
 function receiveMessageFromIframePage (event) {
   console.log('receiveMessageFromIframePage', event);
-  const body = document.querySelector('.App-header');
-  body.append(event.data);
+  const body = document.querySelector('.cms-response');
+  body.value = event.data;
 }
 
 //Listen for message events
@@ -20,6 +20,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <div className='cms-response'></div>
         <img src={logo} className="App-logo" alt="logo" />
         <button
             onClick={toggleTheme}
