@@ -11,7 +11,7 @@ function receiveMessageFromIframePage (event) {
   console.log('receiveMessageFromIframePage', event);
   const body = document.querySelector('.cms-response');
   const element = document.querySelector('.cms-response-text');
-  element.remove();
+  element && element.remove();
   body.createElement('div', {class: 'cms-response-text'}).insertAdjacentText('beforeend', event.data);
 }
 
