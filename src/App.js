@@ -4,13 +4,16 @@ import './App.css';
 function toggleTheme() {
   const body = document.querySelector('.App-header');
   body.classList.toggle('dark');  // toggle dark class
-  window.parent.postMessage({ "data": {"msg": "sportal365_custom_event", "payload": ''}}, '*')
+  window.parent.postMessage({ "data": {"msg": "sportal365_custom_event", "payload": {"name":"John", "age":30, "car":null}}, '*')
 }
 //Callback function
 function receiveMessageFromIframePage (event) {
-  console.log('receiveMessageFromIframePage', event);
-  const body = document.querySelector('.cms-response');
-  body.appendChild(document.createTextNode(event.data));
+  if(event.data.origin === 'http://localhost:3000/') {
+    console.log('receiveMessageFromCMS', event);
+    const body = document.querySelector('.cms-response');
+    body.appendChild(document.createTextNode(event.data));
+  }
+
 }
 
 //Listen for message events
