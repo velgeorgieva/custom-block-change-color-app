@@ -4,7 +4,8 @@ import './App.css';
 function toggleTheme() {
   const body = document.querySelector('.App-header');
   body.classList.toggle('dark');  // toggle dark class
-  window.parent.postMessage({ "data": {"msg": "sportal365_custom_event", "payload": {"name":"John", "age":30, "car":null}}, '*')
+  const jsonResponse = {"name":"John", "age":30, "car":null};
+  window.parent.postMessage({ "data": {"msg": "sportal365_custom_event", "payload": JSON.stringify(jsonResponse)}, '*')
 }
 //Callback function
 function receiveMessageFromIframePage (event) {
