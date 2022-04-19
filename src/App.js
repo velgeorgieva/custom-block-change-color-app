@@ -10,7 +10,7 @@ function toggleTheme() {
 }
 //Callback function
 function receiveMessageFromIframePage (event) {
-  if(event.data.origin === 'http://localhost:3000/') {
+  if(event.data.origin === 'http://localhost:3000') {
     console.log('receiveMessageFromCMS', event);
     const body = document.querySelector('.cms-response');
     body.appendChild(document.createTextNode(event.data));
