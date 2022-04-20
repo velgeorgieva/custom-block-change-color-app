@@ -12,8 +12,11 @@ function toggleTheme() {
 function receiveMessageFromIframePage (event) {
   if(event.origin === 'http://localhost:3000') {
     console.log('receiveMessageFromCMS', event);
+
     const body = document.querySelector('.cms-response');
-    body.appendChild(document.createTextNode(event.data));
+    body.appendChild(document.createTextNode('Message dispatched from the CMS: ' + event.data.data.msg));
+
+    //on load of iframe page, send message to parent page
     if(event.data.data.msg === 'sportal365_custom_event_onload') {
       const element = document.querySelector('.App-header');
       element.classList.toggle(JSON.parse(event.data.data.payload).className);  // toggle dark class
@@ -34,7 +37,7 @@ function App() {
         <button
             onClick={toggleTheme}
             style={{backgroundColor: "#dc6922", border: "none", padding: "10px", cursor: "pointer", textTransform: "uppercase"}}>
-          Toggle Theme
+          change background color
         </button>
       </header>
     </div>
