@@ -16,9 +16,8 @@ function receiveMessageFromIframePage (event) {
     body.appendChild(document.createTextNode(event.data));
     if(event.data.data.msg === 'sportal365_custom_event_onload') {
       const element = document.querySelector('.App-header');
-      const data = JSON.parse(event.data);
-      console.log('data', data);
-      element.classList.toggle(data.className);  // toggle dark class
+
+      element.classList.add(event.data.data.payload.className);
     }
   }
 
