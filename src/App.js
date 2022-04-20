@@ -14,7 +14,10 @@ function receiveMessageFromIframePage (event) {
     console.log('receiveMessageFromCMS', event);
 
     const body = document.querySelector('.cms-response');
-    console.log(body.childNodes[0] ? body.childNodes[0].nodeValue.length : null);
+    const withChildNodes = body.childNodes[0] ? body.childNodes[0].nodeValue.length : null;
+    if(withChildNodes) {
+      body.childNodes[0].remove();
+    }
     body.appendChild(document.createTextNode('Message dispatched from the CMS: ' + event.data.data.msg));
 
     //on load of iframe page, send message to parent page
