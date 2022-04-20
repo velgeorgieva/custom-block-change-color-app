@@ -4,8 +4,8 @@ import './App.css';
 function toggleTheme() {
   const element = document.querySelector('.App-header');
   element.classList.toggle('dark');  // toggle dark class
-  console.log('toggleTheme', element.className);
-  const jsonResponse = element.className === "dark" ? {"className":"dark"} : {"className":""};
+
+  const jsonResponse = element.className.includes('dark') ? {"className":"dark"} : {"className":""};
   window.parent.postMessage({ "data": {"msg": "sportal365_custom_event", "payload": JSON.stringify(jsonResponse)}}, '*');
 }
 //Callback function
