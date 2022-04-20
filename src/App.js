@@ -14,6 +14,7 @@ function receiveMessageFromIframePage (event) {
     console.log('receiveMessageFromCMS', event);
 
     const body = document.querySelector('.cms-response');
+    console.log(body[0].childNodes[0].nodeValue.length);
     body.appendChild(document.createTextNode('Message dispatched from the CMS: ' + event.data.data.msg));
 
     //on load of iframe page, send message to parent page
@@ -36,7 +37,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <button
             onClick={toggleTheme}
-            style={{backgroundColor: "#dc6922", border: "none", padding: "10px", cursor: "pointer", textTransform: "uppercase"}}>
+            style={{backgroundColor: "#dc6922", border: "none", padding: "10px", cursor: "pointer", textTransform: "uppercase",color: "#fff",
+              fontWeight: "bold" }}>
           change background color
         </button>
       </header>
