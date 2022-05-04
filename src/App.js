@@ -6,12 +6,11 @@ function toggleTheme() {
   element.classList.toggle('dark');  // toggle dark class
   //Send message to the CMS
   const jsonResponse = element.className.includes('dark') ? {"className":"dark"} : {"className":""};
-  window.parent.postMessage({ "data": {"msg": "sportal365_custom_event", "payload": JSON.stringify(jsonResponse)}}, '*');
+  window.parent.postMessage({"msg": "sportal365_custom_event", "payload": JSON.stringify(jsonResponse)}, '*');
 }
 
 //Callback function
 function receiveMessageFromIframePage (event) {
-  if(event.origin === 'http://localhost:3000') {
     console.log('receiveMessageFromCMS', event);
 
     const body = document.querySelector('.cms-response');
@@ -20,14 +19,13 @@ function receiveMessageFromIframePage (event) {
     if(withChildNodes) {
       body.childNodes[0].remove();
     }
-    body.appendChild(document.createTextNode('Message dispatched from the CMS: ' + event.data.data.msg));
+    body.appendChild(document.createTextNode('Message dispatched from the CMS: ' + event.data.msg));
 
     //on load of iframe page, send message to parent page
-    if(event.data.data.msg === 'sportal365_custom_event_onload') {
+    if(event.data.msg === 'sportal365_custom_event_onload') {
       const element = document.querySelector('.App-header');
-      element.classList.toggle(JSON.parse(event.data.data.payload).className ? JSON.parse(event.data.data.payload).className : 'empty');  // toggle dark class
+      element.classList.toggle(JSON.parse(event.data.payload).className ? JSON.parse(eventн.data.payload).className : 'empty');  // toggle dark class
     }
-  }
 
 }
 
