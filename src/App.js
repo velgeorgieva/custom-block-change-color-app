@@ -24,7 +24,7 @@ function receiveMessageFromIframePage (event) {
     //on load of iframe page, send message to parent page
     if(event.data.msg === 'sportal365_custom_event_onload') {
       const element = document.querySelector('.App-header');
-      element.classList.toggle(JSON.parse(event.data.payload).className ? JSON.parse(eventн.data.payload).className : 'empty');  // toggle dark class
+      element.classList.toggle(JSON.parse(event.data.payload).className ? JSON.parse(event.data.payload).className : 'empty');  // toggle dark class
     }
 
 }
