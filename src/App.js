@@ -19,7 +19,9 @@ function receiveMessageFromIframePage (event) {
     if(withChildNodes) {
       body.childNodes[0].remove();
     }
-    body.appendChild(document.createTextNode('Message dispatched from the CMS: ' + event.data.msg));
+    if( event && event.data && event.data.msg ) {
+        body.appendChild(document.createTextNode('Message dispatched from the CMS: ' + event.data.msg));
+    }
 
     //on load of iframe page, send message to parent page
     if(event.data.msg === 'sportal365_custom_event_onload') {
