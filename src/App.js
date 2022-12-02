@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 
 function toggleTheme() {
+    console.log('toggleTheme function triggered');
   const element = document.querySelector('.App-header');
   element.classList.toggle('dark');  // toggle dark class
   //Send message to the CMS
